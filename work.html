@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work | Urban Forest</title>
+  <meta name="description" content="Explore Urban Forest's restoration programs: Forest Recovery, Urban Canopy, and Habitat Renewal across urban communities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231d5945'/%3E%3Cpath d='M50 15C31 25 22 40 22 55c0 17 12 28 28 28s28-11 28-28c0-15-9-30-28-40Z' fill='%23c9e66b'/%3E%3Cpath d='M50 43v40M50 57 36 46M50 66l15-13' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+  HEADER & NAVBAR
+  ========================================================= -->
+  <header class="header" id="siteHeader">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo" title="Urban Forest Home">
+          <div class="logo-mark">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 22C13 29 10 38 13 47C15 51 20 54 27 52C24 43 24 32 20 22Z" fill="#a2db34"/>
+              <path d="M44 22C51 29 54 38 51 47C49 51 44 54 37 52C40 43 40 32 44 22Z" fill="#7ebc27"/>
+              <path d="M32 7C22 18 17 31 19 41C21 48 26 53 32 55C38 53 43 48 45 41C47 31 42 18 32 7Z" fill="#c9e66b"/>
+              <path d="M32 16V50M32 28L24 20M32 36L22 27M32 31L40 23M32 39L42 30" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="32" cy="11" r="2" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <strong>Urban Forest</strong>
+            <span>Tree Planting & Reforestation</span>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="home2.html" class="nav-link">Home 2</a>
+          <a href="work.html" class="nav-link active">Our Work</a>
+          <a href="volunteer.html" class="nav-link">Volunteer</a>
+          <a href="donate.html" class="nav-link">Donate</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme" title="Theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+            </svg>
+          </button>
+          <button class="nav-control" onclick="toggleRTL()" title="RTL Layout">RTL</button>
+          <a href="dashboard.html" class="btn btn-green nav-dashboard">Dashboard</a>
+          <a href="signup.html" class="btn btn-lime nav-signup">Signup</a>
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="home2.html">Home 2</a>
+        <a href="work.html" class="active">Our Work</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
+        <div class="mobile-menu-divider" aria-hidden="true"></div>
+        <button class="mobile-control" onclick="toggleTheme();closeMenu()">Theme</button>
+        <button class="mobile-control" onclick="toggleRTL();closeMenu()">RTL</button>
+        <a href="dashboard.html" class="mobile-control mobile-dashboard">Dashboard</a>
+        <a href="signup.html" class="mobile-control mobile-signup">Signup</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================
+    INNER HERO
+    ========================================================= -->
+    <section class="inner-hero hero-work">
+      <div class="container inner-layout">
+        <div class="reveal">
+          <span class="eyebrow">Our Work</span>
+          <h1>Restoration designed for real places.</h1>
+          <p>
+            We combine ecological planning, community participation and
+            long-term care to create measurable restoration outcomes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+    CORE PROGRAMS
+    ========================================================= -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow">Core Programs</span>
+          <h2>Three pathways to healthier landscapes.</h2>
+        </div>
+
+        <div class="cards-3" style="margin-top:45px;">
+          <article class="image-card reveal">
+            <div class="image-card-image">
+              <img src="assets/images/forest-recovery.jpg" alt="Forest recovery">
+            </div>
+            <div class="image-card-body">
+              <h3>Forest Recovery</h3>
+              <p>Rebuilding native woodland structure and ecological diversity.</p>
+            </div>
+          </article>
+
+          <article class="image-card reveal">
+            <div class="image-card-image">
+              <img src="assets/images/urban-canopy.jpg" alt="Lush green urban tree canopy shading a city street">
+            </div>
+            <div class="image-card-body">
+              <h3>Urban Canopy</h3>
+              <p>Adding shade trees and green infrastructure across urban areas.</p>
+            </div>
+          </article>
+
+          <article class="image-card reveal">
+            <div class="image-card-image">
+              <img src="assets/images/protected-habitat.jpg" alt="Protected natural habitat">
+            </div>
+            <div class="image-card-body">
+              <h3>Habitat Renewal</h3>
+              <p>Improving ecological corridors and native habitat quality.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+    HOW WE WORK
+    ========================================================= -->
+    <section class="section bg-cream">
+      <div class="container about-grid">
+        <div class="about-content reveal">
+          <span class="eyebrow">How We Work</span>
+          <h2>Good planting begins long before planting day.</h2>
+          <p>
+            Each project starts with an assessment of soil, water,
+            existing vegetation, local conditions and future maintenance.
+          </p>
+          <div class="check-list">
+            <div class="check">
+              <div class="check-icon">A</div>
+              <div>
+                <strong>Assess</strong>
+                <p>Understand the landscape and restoration opportunity.</p>
+              </div>
+            </div>
+            <div class="check">
+              <div class="check-icon">B</div>
+              <div>
+                <strong>Select</strong>
+                <p>Choose suitable native species and planting methods.</p>
+              </div>
+            </div>
+            <div class="check">
+              <div class="check-icon">C</div>
+              <div>
+                <strong>Care</strong>
+                <p>Monitor and maintain trees after planting.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-image reveal">
+          <img src="assets/images/restoration-team.jpg" alt="Urban reforestation planning team and community volunteers mapping site">
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+    FEATURED PROJECTS
+    ========================================================= -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow">Project Highlights</span>
+          <h2>Restoration stories across our cities.</h2>
+          <p style="max-width:620px;margin:12px auto 0;">See how community action and native reforestation turn underutilized spaces into thriving ecological sanctuaries.</p>
+        </div>
+
+        <div class="cards-3" style="margin-top:45px;">
+          <article class="project-card reveal">
+            <div class="project-card-image">
+              <img src="assets/images/riverbed-corridor.jpg" alt="Riverbed Green Corridor">
+              <span class="project-tag">Urban Riverbed</span>
+            </div>
+            <div class="project-card-body">
+              <span class="project-location">Portland, OR</span>
+              <h3>Riverbed Green Corridor</h3>
+              <p>Re-established native riparian buffer zones along 4.2 miles of urban riverbanks, planting 15,000+ native Willows and Alders.</p>
+              <div class="project-stats">
+                <div><strong>15K+</strong> Trees</div>
+                <div><strong>4.2 mi</strong> Stream Bank</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card-image">
+              <img src="assets/images/micro-forest.jpg" alt="Neighborhood Micro-Forest">
+              <span class="project-tag">Miyawaki Forest</span>
+            </div>
+            <div class="project-card-body">
+              <span class="project-location">Seattle, WA</span>
+              <h3>High-Density Micro-Forest</h3>
+              <p>Transformed a vacant 0.8-acre asphalt lot into a fast-growing, dense Miyawaki micro-forest with 45 native plant species.</p>
+              <div class="project-stats">
+                <div><strong>45</strong> Native Species</div>
+                <div><strong>3x</strong> Growth Speed</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card-image">
+              <img src="assets/images/park-canopy.jpg" alt="Community Park Canopy Initiative">
+              <span class="project-tag">Canopy Expansion</span>
+            </div>
+            <div class="project-card-body">
+              <span class="project-location">Oakland, CA</span>
+              <h3>Community Shade Initiative</h3>
+              <p>Partnered with 8 local neighborhood schools and parks to plant 3,500 shade trees, reducing local heat island temperatures by 4.5°F.</p>
+              <div class="project-stats">
+                <div><strong>3.5K</strong> Shade Trees</div>
+                <div><strong>-4.5°F</strong> Heat Island</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+    MEASURED RESULTS
+    ========================================================= -->
+    <section class="section bg-cream">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow">Measured Results</span>
+          <h2>The restoration network at a glance.</h2>
+        </div>
+
+        <div class="counter-grid" style="background:var(--green);margin-top:45px;border-radius:12px;overflow:hidden;color:white;">
+          <div class="counter">
+            <strong>148K+</strong>
+            <span>Trees established</span>
+          </div>
+          <div class="counter">
+            <strong>620</strong>
+            <span>Acres restored</span>
+          </div>
+          <div class="counter">
+            <strong>92%</strong>
+            <span>Target survival rate</span>
+          </div>
+          <div class="counter">
+            <strong>24K+</strong>
+            <span>Volunteer hours</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+  FOOTER
+  ========================================================= -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo">
+            <div class="logo-mark">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 22C13 29 10 38 13 47C15 51 20 54 27 52C24 43 24 32 20 22Z" fill="#a2db34"/>
+                <path d="M44 22C51 29 54 38 51 47C49 51 44 54 37 52C40 43 40 32 44 22Z" fill="#7ebc27"/>
+                <path d="M32 7C22 18 17 31 19 41C21 48 26 53 32 55C38 53 43 48 45 41C47 31 42 18 32 7Z" fill="#c9e66b"/>
+                <path d="M32 16V50M32 28L24 20M32 36L22 27M32 31L40 23M32 39L42 30" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="32" cy="11" r="2" fill="#ffffff"/>
+              </svg>
+            </div>
+            <div class="logo-text">
+              <strong>Urban Forest</strong>
+              <span>Tree Planting & Reforestation</span>
+            </div>
+          </a>
+          <p>
+            Restoring urban forests and helping communities build
+            healthier green spaces for future generations.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="white">
+                <path d="M13.5 22v-9h3l.5-3h-3.5V8.1c0-.9.3-1.6 1.7-1.6H17V3.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V10H7v3h3v9h3.5z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="white">
+                <path d="M5 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5ZM3 10h4v11H3V10Zm6 0h3.8v1.5h.1c.5-1 1.8-2 3.8-2 4.1 0 4.8 2.7 4.8 6.2V21h-4v-4.7c0-1.1 0-3.3-2-3.3s-2.4 1.6-2.4 3.2V21H9V10Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="home2.html">About & Mission</a>
+            <a href="work.html">Our Work</a>
+            <a href="dashboard.html">Dashboard</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Get Involved</h4>
+          <div class="footer-links">
+            <a href="volunteer.html">Volunteer</a>
+            <a href="donate.html">Donate</a>
+            <a href="signup.html">Create Account</a>
+            <a href="login.html">Login</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Connect</h4>
+          <div class="footer-links">
+            <a href="contact.html">Contact</a>
+          </div>
+          <form class="footer-newsletter-form" onsubmit="newsletter(event)">
+            <p class="footer-sub-text">Subscribe to updates</p>
+            <div class="footer-input-box">
+              <input type="email" placeholder="Your email address" required aria-label="Your email address">
+              <button type="submit" aria-label="Subscribe">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Urban Forest. All rights reserved.</span>
+        <span>Growing greener communities.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
