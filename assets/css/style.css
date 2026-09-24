@@ -785,14 +785,20 @@ IMPACT SECTION
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: #c7d8d0;
+}
+
+.impact-content .eyebrow {
+  color: var(--lime);
 }
 
 .impact-content h2 {
-  color: white;
+  color: #ffffff;
 }
 
 .impact-content p {
   margin: 18px 0 25px;
+  color: #c7d8d0;
 }
 
 .impact-points {
@@ -821,6 +827,8 @@ IMPACT SECTION
 
 .impact-point span {
   text-align: center;
+  color: #c7d8d0;
+  font-size: 0.88rem;
 }
 
 /* =========================================================
@@ -1116,6 +1124,10 @@ NEWSLETTER
   color: white;
   padding: 65px;
   text-align: center;
+}
+
+.newsletter .eyebrow {
+  color: var(--lime);
 }
 
 .newsletter h2 {
@@ -2588,6 +2600,10 @@ DASHBOARD (SUPPORTER IMPACT PORTAL)
     display: block;
   }
 
+  .dashboard-mobile-nav {
+    display: none !important;
+  }
+
   .dashboard-side {
     position: fixed;
     top: 0;
@@ -2623,12 +2639,7 @@ DASHBOARD (SUPPORTER IMPACT PORTAL)
 
 @media (max-width: 1050px) {
   .dashboard-side {
-    background: var(--green-dark);
-    color: white;
-    padding: 25px 15px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
+    display: none !important;
   }
 
   .dashboard-main {
@@ -2764,6 +2775,10 @@ body.rtl .dashboard-actions {
 
 .dashboard-action:hover {
   border-color: var(--green);
+}
+
+.dashboard-mobile-nav {
+  display: none;
 }
 
 .dashboard-menu {
@@ -3287,7 +3302,7 @@ RESPONSIVE BREAKPOINTS
     display: block;
   }
   .dashboard-side {
-    display: none;
+    display: none !important;
   }
   .dashboard-main {
     margin-left: 0;
@@ -3297,30 +3312,162 @@ RESPONSIVE BREAKPOINTS
     margin-left: 0;
     margin-right: 0;
   }
-  .dashboard-menu {
+
+  /* Mobile, Tablet & 1024 Navbar */
+  .dashboard-mobile-nav {
     display: block;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(11, 38, 29, 0.08);
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
   }
-  .dashboard-mobile.open {
-    display: grid;
-    gap: 5px;
-    background: var(--white);
-    padding: 10px;
-    border: 1px solid var(--border);
-    margin-bottom: 18px;
-    border-radius: 6px;
+
+  body.dark .dashboard-mobile-nav {
+    background: rgba(17, 37, 27, 0.96);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-bottom-color: var(--border);
   }
-  .dashboard-mobile button,
-  .dashboard-mobile a {
-    border: 0;
-    background: var(--cream);
-    padding: 11px;
-    text-align: center;
-    font-weight: 800;
-    border-radius: 4px;
+
+  .dashboard-mobile-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+    padding: 10px 24px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dashboard-mobile-nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
     color: var(--text);
   }
-  body.rtl .dashboard-mobile button,
-  body.rtl .dashboard-mobile a {
+
+  .dashboard-mobile-nav .logo-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    flex-shrink: 0;
+  }
+
+  .dashboard-mobile-nav .logo-mark svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .dashboard-mobile-nav .logo-text strong {
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text);
+    display: block;
+  }
+
+  .dashboard-mobile-nav .logo-text span {
+    font-size: 0.68rem;
+    color: var(--muted);
+    display: block;
+    margin-top: 3px;
+    letter-spacing: 0.02em;
+  }
+
+  .dashboard-mobile-nav .dashboard-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text);
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.88rem;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(18, 58, 45, 0.08);
+    transition: var(--transition);
+  }
+
+  body.dark .dashboard-mobile-nav .dashboard-menu {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .dashboard-mobile-nav .dashboard-menu:hover {
+    border-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(29, 89, 69, 0.15);
+  }
+
+  body.rtl .dashboard-mobile-nav-inner {
+    flex-direction: row-reverse;
+  }
+
+  .dashboard-mobile-nav .dashboard-mobile {
+    display: none;
+  }
+
+  .dashboard-mobile-nav .dashboard-mobile.open {
+    display: grid;
+    gap: 8px;
+    background: var(--white);
+    padding: 16px 24px 22px;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 12px 30px rgba(11, 38, 29, 0.12);
+    animation: fadeInDown 0.25s ease;
+  }
+
+  body.dark .dashboard-mobile-nav .dashboard-mobile.open {
+    background: var(--dark-card, #11251b);
+    border-top-color: var(--border);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .dashboard-mobile-nav .dashboard-mobile button,
+  .dashboard-mobile-nav .dashboard-mobile a {
+    border: 0;
+    background: var(--cream);
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: 800;
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 0.92rem;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  body.dark .dashboard-mobile-nav .dashboard-mobile button,
+  body.dark .dashboard-mobile-nav .dashboard-mobile a {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+  }
+
+  .dashboard-mobile-nav .dashboard-mobile button:hover,
+  .dashboard-mobile-nav .dashboard-mobile button.active {
+    background: var(--green);
+    color: #ffffff;
+  }
+
+  body.dark .dashboard-mobile-nav .dashboard-mobile button:hover,
+  body.dark .dashboard-mobile-nav .dashboard-mobile button.active {
+    background: var(--green-light);
+    color: #ffffff;
+  }
+
+  body.rtl .dashboard-mobile-nav .dashboard-mobile button,
+  body.rtl .dashboard-mobile-nav .dashboard-mobile a {
     text-align: center;
   }
 }
@@ -3579,6 +3726,13 @@ RESPONSIVE BREAKPOINTS
   }
   .socials-auth {
     grid-template-columns: 1fr;
+  }
+  .dashboard-mobile-nav-inner {
+    padding: 10px 16px;
+    min-height: 64px;
+  }
+  .dashboard-mobile-nav .dashboard-mobile.open {
+    padding: 14px 16px 18px;
   }
   .dashboard-main {
     padding: 15px;
