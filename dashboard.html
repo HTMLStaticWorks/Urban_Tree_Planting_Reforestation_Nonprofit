@@ -66,33 +66,48 @@
     </header>
 
     <div class="dashboard-shell">
-      <!-- SIDEBAR -->
-      <aside class="dashboard-side">
-        <a href="index.html" class="dashboard-logo" title="Back to website home">
-          <div class="logo-mark">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 22C13 29 10 38 13 47C15 51 20 54 27 52C24 43 24 32 20 22Z" fill="#a2db34"/>
-              <path d="M44 22C51 29 54 38 51 47C49 51 44 54 37 52C40 43 40 32 44 22Z" fill="#7ebc27"/>
-              <path d="M32 7C22 18 17 31 19 41C21 48 26 53 32 55C38 53 43 48 45 41C47 31 42 18 32 7Z" fill="#c9e66b"/>
-              <path d="M32 16V50M32 28L24 20M32 36L22 27M32 31L40 23M32 39L42 30" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="32" cy="11" r="2" fill="#ffffff"/>
-            </svg>
-          </div>
-          <div>
-            <strong>Impact Portal</strong>
-            <small>Urban Forest</small>
-          </div>
-        </a>
+      <!-- STICKY SIDEBAR -->
+      <aside class="dashboard-side" id="dashboardSidebar">
+        <div class="dashboard-side-top">
+          <a href="index.html" class="dashboard-logo" title="Back to website home">
+            <div class="logo-mark">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 22C13 29 10 38 13 47C15 51 20 54 27 52C24 43 24 32 20 22Z" fill="#a2db34"/>
+                <path d="M44 22C51 29 54 38 51 47C49 51 44 54 37 52C40 43 40 32 44 22Z" fill="#7ebc27"/>
+                <path d="M32 7C22 18 17 31 19 41C21 48 26 53 32 55C38 53 43 48 45 41C47 31 42 18 32 7Z" fill="#c9e66b"/>
+                <path d="M32 16V50M32 28L24 20M32 36L22 27M32 31L40 23M32 39L42 30" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="32" cy="11" r="2" fill="#ffffff"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Impact Portal</strong>
+              <small>Urban Forest</small>
+            </div>
+          </a>
 
-        <nav class="dashboard-nav">
-          <button class="active" data-tab="overview" onclick="dashTab('overview', this)">Overview</button>
-          <button data-tab="impact" onclick="dashTab('impact', this)">My Impact</button>
-          <button data-tab="projects" onclick="dashTab('projects', this)">Projects</button>
-          <button data-tab="activity" onclick="dashTab('activity', this)">Activity</button>
-        </nav>
+          <nav class="dashboard-nav">
+            <button class="active" data-tab="overview" onclick="dashTab('overview', this)">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:8px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span>Overview</span>
+            </button>
+            <button data-tab="impact" onclick="dashTab('impact', this)">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:8px;"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              <span>My Impact</span>
+            </button>
+            <button data-tab="projects" onclick="dashTab('projects', this)">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:8px;"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+              <span>Projects (86)</span>
+            </button>
+            <button data-tab="activity" onclick="dashTab('activity', this)">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:8px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <span>Activity Log</span>
+            </button>
+          </nav>
+        </div>
 
-        <div class="dashboard-side-controls" style="margin-top: 35px; display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; width: 100%;">
-          <div style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;">
+        <!-- LOGOUT OPTION AT THE BOTTOM OF THE SIDEBAR -->
+        <div class="dashboard-side-bottom">
+          <div class="side-utility-row">
             <button class="theme-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle Theme">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="4"/>
@@ -100,17 +115,43 @@
               </svg>
             </button>
             <button class="nav-control" type="button" onclick="toggleRTL()" title="Toggle RTL">RTL</button>
+            <a href="index.html" class="nav-control" title="Return to public site">Site Home</a>
           </div>
-          <button class="btn btn-lime" type="button" onclick="logout()" style="padding: 10px 20px; font-size: 0.88rem; width: 100%; max-width: 190px; justify-content: center; text-align: center;">Logout</button>
+
+          <button class="btn-logout-side" type="button" onclick="logout()" title="Log out of portal">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Log Out</span>
+          </button>
         </div>
       </aside>
 
       <!-- MAIN CONTENT -->
       <main class="dashboard-main">
-        <div class="dashboard-top">
-          <div>
-            <h1>Welcome, <span id="dashboardName">Supporter</span></h1>
-            <p>Your environmental contribution at a glance.</p>
+        <!-- TOP BAR: Welcome Message on Left, Profile Section on Top-Right -->
+        <div class="dashboard-top-bar">
+          <div class="dashboard-welcome-col">
+            <span class="dashboard-welcome-pill">🌱 Verified Supporter Portal</span>
+            <h1 class="dashboard-welcome-title">Welcome back, <span id="dashboardName">Supporter</span>!</h1>
+            <p class="dashboard-welcome-desc">
+              Your environmental stewardship record: here is how your trees, volunteer hours, and community projects are flourishing across our active network.
+            </p>
+          </div>
+
+          <!-- PROFILE SECTION IN TOP-RIGHT CORNER -->
+          <div class="dashboard-profile-card">
+            <div class="profile-avatar">
+              <span id="profileAvatarInitial">S</span>
+              <span class="profile-status-dot" title="Active Supporter"></span>
+            </div>
+            <div class="profile-details">
+              <strong class="profile-name" id="profileFullName">Supporter</strong>
+              <span class="profile-role">Verified Tree Steward</span>
+              <span class="profile-id">ID: #UF-84920</span>
+            </div>
           </div>
         </div>
 
@@ -377,39 +418,42 @@
           <div class="cards-3" style="margin-top:35px;">
             <div class="image-card">
               <div class="image-card-image">
-                <img src="assets/images/urban-forest-project.jpg" alt="Urban forest project">
+                <img src="assets/images/riverbed-corridor.jpg" alt="Riverfront Riparian Sanctuary in Portland">
               </div>
               <div class="image-card-body">
-                <h3>Urban Canopy</h3>
-                <p>Your impact: 68 trees</p>
+                <span style="font-size:0.75rem;font-weight:700;color:var(--green-light);text-transform:uppercase;">📍 Portland, OR</span>
+                <h3>Riverfront Riparian Sanctuary</h3>
+                <p>Site Total: 15,200 Trees • Your impact: 68 trees</p>
                 <div class="progress" style="margin-top:12px;">
-                  <span style="width:82%;"></span>
+                  <span style="width:100%;"></span>
                 </div>
               </div>
             </div>
 
             <div class="image-card">
               <div class="image-card-image">
-                <img src="assets/images/native-restoration.jpg" alt="Native restoration">
+                <img src="assets/images/mountain-forest.jpg" alt="Cascade Watershed Recovery in Seattle">
               </div>
               <div class="image-card-body">
-                <h3>Native Recovery</h3>
-                <p>Your impact: 74 trees</p>
+                <span style="font-size:0.75rem;font-weight:700;color:var(--green-light);text-transform:uppercase;">📍 Seattle, WA</span>
+                <h3>Cascade Watershed Recovery</h3>
+                <p>Site Total: 22,400 Trees • Your impact: 74 trees</p>
                 <div class="progress" style="margin-top:12px;">
-                  <span style="width:69%;"></span>
+                  <span style="width:96%;"></span>
                 </div>
               </div>
             </div>
 
             <div class="image-card">
               <div class="image-card-image">
-                <img src="assets/images/forest-path.jpg" alt="Community forest">
+                <img src="assets/images/urban-canopy.jpg" alt="Oakland Southside Shade Canopy">
               </div>
               <div class="image-card-body">
-                <h3>Community Forest</h3>
-                <p>Your impact: 42 trees</p>
+                <span style="font-size:0.75rem;font-weight:700;color:var(--green-light);text-transform:uppercase;">📍 Oakland, CA</span>
+                <h3>Southside Schoolyard Canopy</h3>
+                <p>Site Total: 4,850 Trees • Your impact: 42 trees</p>
                 <div class="progress" style="margin-top:12px;">
-                  <span style="width:91%;"></span>
+                  <span style="width:88%;"></span>
                 </div>
               </div>
             </div>
@@ -471,7 +515,6 @@
   </section>
 
   <div class="toast" id="toast"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/dashboard.js"></script>
 </body>

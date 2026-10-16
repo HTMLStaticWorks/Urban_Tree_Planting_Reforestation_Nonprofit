@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupImages();
   revealInit();
   highlightActiveNav();
-  init3DEngine();
+  initOrganicInteractions();
   initScrollToTop();
 });
 
@@ -292,232 +292,50 @@ window.addEventListener("resize", () => {
 });
 
 /* =========================================================
-HIGH PERFORMANCE 3D ANIMATION ENGINE (BUTTER-SMOOTH SCROLLING)
+REFINED ORGANIC CARD & BUTTON MICRO-INTERACTIONS
 ========================================================= */
 
-// Global Scroll State Throttler
-let isScrollingTimer = null;
-let isScrolling = false;
+function initOrganicInteractions() {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) return;
 
-window.addEventListener("scroll", () => {
-  isScrolling = true;
-  clearTimeout(isScrollingTimer);
-  isScrollingTimer = setTimeout(() => {
-    isScrolling = false;
-  }, 120);
-}, { passive: true });
+  const interactiveCards = document.querySelectorAll(
+    ".program-card, .experience-card, .donor-perk-card, .impact-point, .counter, .three-column, .volunteer-card, .stat-card, .feature-card, .dashboard-card, .model-pillar, .process-card, .project-card"
+  );
 
-// Universal 3D Tilt Engine with rAF & Passive Event Listeners
-function init3DTilt() {
-  const tiltSelectors = [
-    ".btn",
-    ".theme-btn",
-    ".menu-btn",
-    ".nav-control",
-    ".mobile-control",
-    ".amount",
-    ".filter-btn",
-    ".hero-image",
-    ".hero-card",
-    ".feature-card",
-    ".stat-card",
-    ".impact-card",
-    ".volunteer-card",
-    ".event-card",
-    ".work-card",
-    ".testimonial-card",
-    ".pricing-card",
-    ".auth-card",
-    ".image-frame",
-    ".img-card",
-    ".gallery-item",
-    ".dashboard-card",
-    "[data-tilt]"
-  ];
+  interactiveCards.forEach((card) => {
+    if (card.dataset.interactionBound) return;
+    card.dataset.interactionBound = "true";
 
-  const elements = document.querySelectorAll(tiltSelectors.join(","));
-
-  elements.forEach((el) => {
-    if (el.dataset.tiltBound) return;
-    el.dataset.tiltBound = "true";
-
-    let glare = el.querySelector(".glare-3d");
-    if (!glare && !el.classList.contains("btn") && !el.classList.contains("nav-control")) {
-      glare = document.createElement("div");
-      glare.className = "glare-3d";
-      el.appendChild(glare);
-    }
-
-    const isButton = el.classList.contains("btn") || el.tagName === "BUTTON";
-    const maxTilt = isButton ? 8 : 12;
-    let rafId = null;
-
-    el.addEventListener("mousemove", (e) => {
-      if (isScrolling) return;
-
-      if (rafId) cancelAnimationFrame(rafId);
-
-      rafId = requestAnimationFrame(() => {
-        const rect = el.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-        const rotateX = (-y * maxTilt).toFixed(1);
-        const rotateY = (x * maxTilt).toFixed(1);
-
-        el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(0, -3px, 8px)`;
-
-        if (glare) {
-          glare.style.opacity = "1";
-          glare.style.background = `radial-gradient(circle at ${(x + 0.5) * 100}% ${(y + 0.5) * 100}%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 75%)`;
-        }
-      });
-    }, { passive: true });
-
-    el.addEventListener("mouseleave", () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      el.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0)";
-      if (glare) {
-        glare.style.opacity = "0";
-      }
+    card.addEventListener("mouseenter", () => {
+      card.style.transition = "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease";
     });
 
-    el.addEventListener("mousedown", () => {
-      el.style.transform = `perspective(1000px) scale3d(0.98, 0.98, 0.98) translate3d(0, 1px, 2px)`;
-    }, { passive: true });
-
-    el.addEventListener("mouseup", () => {
-      el.style.transform = `perspective(1000px) translate3d(0, -3px, 8px)`;
-    }, { passive: true });
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+      card.style.boxShadow = "";
+    });
   });
 }
 
-// Optimized Three.js Ambient Particle Background
-function initThreeBG() {
-  if (document.getElementById("webgl-3d-bg")) return;
-
-  const canvas = document.createElement("canvas");
-  canvas.id = "webgl-3d-bg";
-  document.body.prepend(canvas);
-
-  function startScene() {
-    if (typeof THREE === "undefined") return;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 30;
-
-    const renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-      alpha: true,
-      antialias: false,
-      powerPreference: "high-performance"
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-
-    // Particle Leaf Geometry
-    const particlesCount = 50;
-    const geometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(particlesCount * 3);
-
-    for (let i = 0; i < particlesCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 60;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 60;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 30;
-    }
-
-    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-    const material = new THREE.PointsMaterial({
-      color: 0x7ebc27,
-      size: 0.9,
-      transparent: true,
-      opacity: 0.6,
-      depthWrite: false
-    });
-
-    const particlesMesh = new THREE.Points(geometry, material);
-    scene.add(particlesMesh);
-
-    // Floating Low-Poly Shapes
-    const shapesGroup = new THREE.Group();
-    const shapeGeo = new THREE.IcosahedronGeometry(2.5, 0);
-
-    for (let i = 0; i < 4; i++) {
-      const shapeMat = new THREE.MeshBasicMaterial({
-        color: i % 2 === 0 ? 0x1d5945 : 0xc9e66b,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.2
-      });
-      const mesh = new THREE.Mesh(shapeGeo, shapeMat);
-      mesh.position.set((Math.random() - 0.5) * 40, (Math.random() - 0.5) * 30, (Math.random() - 0.5) * 15);
-      shapesGroup.add(mesh);
-    }
-    scene.add(shapesGroup);
-
-    let mouseX = 0;
-    let mouseY = 0;
-
-    window.addEventListener("mousemove", (e) => {
-      if (isScrolling) return;
-      mouseX = (e.clientX / window.innerWidth - 0.5) * 1.5;
-      mouseY = (e.clientY / window.innerHeight - 0.5) * 1.5;
-    }, { passive: true });
-
-    let clock = new THREE.Clock();
-
-    function animate() {
-      requestAnimationFrame(animate);
-
-      // Skip GPU render tick during heavy scrolling for 60fps smoothness
-      if (isScrolling) return;
-
-      const elapsedTime = clock.getElapsedTime();
-
-      particlesMesh.rotation.y = elapsedTime * 0.04 + mouseX * 0.05;
-      particlesMesh.rotation.x = elapsedTime * 0.02 + mouseY * 0.05;
-
-      shapesGroup.children.forEach((mesh, idx) => {
-        mesh.rotation.x += 0.003 * (idx + 1);
-        mesh.rotation.y += 0.004 * (idx + 1);
-      });
-
-      camera.position.x += (mouseX * 2 - camera.position.x) * 0.04;
-      camera.position.y += (-mouseY * 2 - camera.position.y) * 0.04;
-      camera.lookAt(scene.position);
-
-      renderer.render(scene, camera);
-    }
-
-    animate();
-
-    let resizeTimer;
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      }, 200);
-    }, { passive: true });
+// Interactive Project Locations Filter
+function filterProjects(category, btnElement) {
+  const filterBtns = document.querySelectorAll(".project-filter-btn");
+  filterBtns.forEach((btn) => btn.classList.remove("active"));
+  if (btnElement) {
+    btnElement.classList.add("active");
   }
 
-  if (typeof THREE === "undefined") {
-    const script = document.createElement("script");
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
-    script.onload = startScene;
-    document.head.appendChild(script);
-  } else {
-    startScene();
-  }
+  const cards = document.querySelectorAll(".project-card[data-category]");
+  cards.forEach((card) => {
+    const cardCat = card.getAttribute("data-category");
+    if (category === "all" || cardCat === category) {
+      card.classList.remove("is-hidden");
+    } else {
+      card.classList.add("is-hidden");
+    }
+  });
 }
 
-// Master 3D Engine Initialization
-function init3DEngine() {
-  init3DTilt();
-  initThreeBG();
-}
 
 

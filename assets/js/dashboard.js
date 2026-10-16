@@ -8,6 +8,14 @@ function updateDashboard() {
   if (nameEl) {
     nameEl.textContent = name;
   }
+  const profNameEl = document.getElementById("profileFullName");
+  if (profNameEl) {
+    profNameEl.textContent = name;
+  }
+  const avatarInitialEl = document.getElementById("profileAvatarInitial");
+  if (avatarInitialEl) {
+    avatarInitialEl.textContent = name.trim().charAt(0).toUpperCase() || "S";
+  }
 }
 
 function dashTab(name, button) {
