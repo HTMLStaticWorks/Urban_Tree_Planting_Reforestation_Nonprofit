@@ -140,31 +140,42 @@ h4 {
   font-family: "Playfair Display", serif;
   line-height: 1.15;
   letter-spacing: -0.015em;
+  color: var(--text-dark);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 h2 {
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4 {
   color: var(--text-dark);
 }
 
-body.dark h2 {
-  color: var(--text);
-}
-
-/* Ensure headings inside all dark containers remain crisp white in light mode */
+/* Ensure headings inside all dark containers remain crisp white in both light and dark mode */
+.bg-green h1,
 .bg-green h2,
+.bg-green h3,
+.bg-green h4,
 .hero-two h1,
 .hero-two h2,
 .hero-two h3,
 .inner-hero h1,
 .inner-hero h2,
 .inner-hero h3,
+.inner-layout h1,
 .newsletter h2,
 .counter-section h2,
 .verified-counter-banner h2,
 .verified-counter-banner h3,
 .impact-highlight h2,
-.impact-highlight h3 {
+.impact-highlight h3,
+.donation-content h2,
+body.dark .before-after-showcase h3 {
   color: #ffffff !important;
 }
 
@@ -195,12 +206,34 @@ p {
   flex-shrink: 0;
 }
 
-.bg-green .eyebrow {
-  color: var(--lime);
+.bg-green .eyebrow,
+.donation-box .eyebrow,
+.donation-content .eyebrow,
+.hero-two .eyebrow,
+.inner-hero .eyebrow,
+.inner-layout .eyebrow,
+.newsletter .eyebrow,
+.impact-content .eyebrow,
+.verified-counter-banner .eyebrow,
+.impact-highlight .eyebrow,
+.cta-box .eyebrow,
+body.dark .eyebrow {
+  color: var(--lime) !important;
 }
 
-.bg-green .eyebrow::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9e66b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z'/%3E%3Cpath d='M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12'/%3E%3C/svg%3E");
+.bg-green .eyebrow::before,
+.donation-box .eyebrow::before,
+.donation-content .eyebrow::before,
+.hero-two .eyebrow::before,
+.inner-hero .eyebrow::before,
+.inner-layout .eyebrow::before,
+.newsletter .eyebrow::before,
+.impact-content .eyebrow::before,
+.verified-counter-banner .eyebrow::before,
+.impact-highlight .eyebrow::before,
+.cta-box .eyebrow::before,
+body.dark .eyebrow::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9e66b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z'/%3E%3Cpath d='M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12'/%3E%3C/svg%3E") !important;
 }
 
 .btn {
@@ -555,12 +588,21 @@ HERO (HOME 1)
 }
 
 .hero-content h1 {
-  font-size: clamp(3.2rem, 5.5vw, 5.8rem);
+  font-size: clamp(2.3rem, 5.5vw, 5.8rem);
   letter-spacing: -0.04em;
+  overflow-wrap: break-word;
 }
 
 .hero-content h1 span {
   color: var(--green-light);
+}
+
+body.dark .hero-content h1 {
+  color: #ffffff;
+}
+
+body.dark .hero-content h1 span {
+  color: var(--lime);
 }
 
 .hero-content p {
@@ -696,6 +738,102 @@ body.rtl .counter {
 
 .counter:hover span {
   color: var(--lime, #c9e66b);
+}
+
+/* =========================================================
+5-ITEM COUNTER GRID (DONATE PAGE COLLECTIVE IMPACT)
+========================================================= */
+.counter-grid-5,
+.counter-grid:has(> :nth-child(5):last-child) {
+  grid-template-columns: repeat(5, 1fr) !important;
+}
+
+.counter-grid-5 .counter,
+.counter-grid:has(> :nth-child(5):last-child) .counter {
+  padding: 38px 12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 0;
+}
+
+.counter-grid-5 .counter:last-child,
+.counter-grid:has(> :nth-child(5):last-child) .counter:last-child {
+  border-right: 0;
+}
+
+body.rtl .counter-grid-5 .counter,
+body.rtl .counter-grid:has(> :nth-child(5):last-child) .counter {
+  border-right: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.rtl .counter-grid-5 .counter:last-child,
+body.rtl .counter-grid:has(> :nth-child(5):last-child) .counter:last-child {
+  border-left: 0;
+}
+
+.counter-grid-5 .counter strong,
+.counter-grid:has(> :nth-child(5):last-child) .counter strong {
+  font-size: clamp(1.75rem, 2.2vw, 2.45rem);
+  white-space: nowrap;
+}
+
+.counter-grid-5 .counter span,
+.counter-grid:has(> :nth-child(5):last-child) .counter span {
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .counter-grid-5,
+  .counter-grid:has(> :nth-child(5):last-child) {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .counter-grid-5 .counter,
+  .counter-grid:has(> :nth-child(5):last-child) .counter {
+    padding: 28px 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .counter-grid-5 .counter:nth-child(2n),
+  .counter-grid:has(> :nth-child(5):last-child) .counter:nth-child(2n) {
+    border-right: 0;
+  }
+  body.rtl .counter-grid-5 .counter:nth-child(2n),
+  body.rtl .counter-grid:has(> :nth-child(5):last-child) .counter:nth-child(2n) {
+    border-left: 0;
+  }
+  .counter-grid-5 .counter:last-child,
+  .counter-grid:has(> :nth-child(5):last-child) .counter:last-child {
+    grid-column: 1 / -1;
+    border-right: 0;
+    border-bottom: 0;
+    background: rgba(255, 255, 255, 0.025);
+  }
+  body.rtl .counter-grid-5 .counter:last-child,
+  body.rtl .counter-grid:has(> :nth-child(5):last-child) .counter:last-child {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .counter-grid-5,
+  .counter-grid:has(> :nth-child(5):last-child) {
+    grid-template-columns: 1fr !important;
+  }
+  .counter-grid-5 .counter,
+  .counter-grid:has(> :nth-child(5):last-child) .counter {
+    padding: 22px 14px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  body.rtl .counter-grid-5 .counter,
+  body.rtl .counter-grid:has(> :nth-child(5):last-child) .counter {
+    border-left: 0;
+  }
+  .counter-grid-5 .counter:last-child,
+  .counter-grid:has(> :nth-child(5):last-child) .counter:last-child {
+    border-bottom: 0;
+  }
 }
 
 /* =========================================================
@@ -1012,10 +1150,19 @@ HERO (HOME 2)
 }
 
 .hero-two h1 {
-  font-size: clamp(3rem, 5.5vw, 5.8rem);
+  font-size: clamp(2.3rem, 5.5vw, 5.8rem);
+  overflow-wrap: break-word;
 }
 
 .hero-two h1 span {
+  color: var(--lime);
+}
+
+body.dark .hero-two h1 {
+  color: #ffffff;
+}
+
+body.dark .hero-two h1 span {
   color: var(--lime);
 }
 
@@ -1323,16 +1470,18 @@ INNER PAGES HERO (WORK, VOLUNTEER, DONATE, CONTACT)
 .inner-layout {
   position: relative;
   z-index: 1;
-  width: 100%;
   text-align: center;
+  padding: 0 15px;
 }
 
 .inner-layout h1 {
-  font-size: clamp(2.75rem, 5vw, 4rem);
-  line-height: 1.08;
+  font-size: clamp(1.85rem, 5vw, 4rem);
+  line-height: 1.15;
   color: #fff;
   max-width: 900px;
   margin: 0 auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .inner-layout p {
@@ -3905,7 +4054,9 @@ RESPONSIVE BREAKPOINTS
   }
   .hero-content h1,
   .hero-two h1 {
-    font-size: 3.2rem;
+    font-size: clamp(1.75rem, 6vw, 3rem);
+    line-height: 1.15;
+    overflow-wrap: break-word;
   }
   .hero-image,
   .hero-two-image {
@@ -3999,7 +4150,9 @@ RESPONSIVE BREAKPOINTS
   .inner-layout h1,
   .auth-box h1,
   .dashboard-top h1 {
-    font-size: 2.75rem;
+    font-size: clamp(1.5rem, 5.5vw, 2.2rem);
+    line-height: 1.18;
+    overflow-wrap: break-word;
   }
   .hero-work,
   .hero-volunteer,
@@ -4100,10 +4253,43 @@ RESPONSIVE BREAKPOINTS
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 768px) {
+  .hero-content h1 span,
+  .hero-two h1 span {
+    display: block;
+    margin-top: 4px;
+  }
+  .donation-content {
+    padding: 30px 18px;
+  }
+  .donation-content h2 {
+    font-size: clamp(1.4rem, 5.5vw, 2.1rem);
+    overflow-wrap: break-word;
+  }
+  .before-after-showcase {
+    padding: 24px 16px;
+  }
+  .verified-counter-lead h3 {
+    font-size: clamp(1.35rem, 5vw, 1.8rem);
+  }
+}
+
+@media (max-width: 480px) {
   .hero-content h1,
   .hero-two h1 {
-    font-size: 2.8rem;
+    font-size: clamp(1.35rem, 5.5vw, 1.7rem);
+    line-height: 1.2;
+    overflow-wrap: break-word;
+  }
+  .inner-layout h1,
+  .auth-box h1,
+  .dashboard-top h1 {
+    font-size: clamp(1.22rem, 5vw, 1.55rem);
+    line-height: 1.22;
+    overflow-wrap: break-word;
+  }
+  h2 {
+    font-size: clamp(1.3rem, 5.2vw, 1.75rem);
   }
   .hero-buttons .btn {
     width: 100%;
@@ -5039,6 +5225,27 @@ METRIC HIGHLIGHT STRIP & VERIFIED LIVE COUNTER
 body.dark .before-after-showcase {
   background: var(--dark-card);
   border-color: var(--border);
+}
+
+body.dark .before-after-showcase h3 {
+  color: #ffffff !important;
+}
+
+.growth-badge {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(29, 89, 69, 0.08);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+body.dark .growth-badge {
+  background: rgba(201, 230, 107, 0.15) !important;
+  color: var(--lime) !important;
 }
 
 .before-after-grid {
